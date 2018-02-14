@@ -8,22 +8,22 @@ GAME    *initSdl(void)
         return (NULL);
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
-		printf("error\n");
+		dprintf(2, "Error\n");
 		return (NULL);
 	}
     if (!(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF) & (IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF)))
     {
-        printf("Error with sdl image\n");
+        dprintf(2, "Error with sdl image\n");
         return (NULL);
     }
 	if ((game->window = SDL_CreateWindow("randomGame",  SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN)) == NULL)
 	{
-		printf("Error Create a window\n");
+		dprintf(2, "Error Create a window\n");
 		return (NULL);
 	}
 	if ((game->renderer = SDL_CreateRenderer(game->window, -1, SDL_RENDERER_ACCELERATED)) == NULL)
 	{
-		printf("Error creating a renderer\n");
+		dprintf(2, "Error creating a renderer\n");
 		return (NULL);
 	}
     game->keyboard = SDL_GetKeyboardState(NULL);

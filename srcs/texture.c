@@ -2,8 +2,8 @@
 
 SDL_Texture     *imageToTexture(const char *path, SDL_Renderer *renderer)
 {
-    SDL_Surface     *surface;
-    SDL_Texture     *texture;
+    SDL_Surface     *surface = NULL;
+    SDL_Texture     *texture = NULL;
 
     if (!path || !renderer)
         return (NULL);
@@ -12,5 +12,6 @@ SDL_Texture     *imageToTexture(const char *path, SDL_Renderer *renderer)
     if (!(texture = SDL_CreateTextureFromSurface(renderer, surface)))
         return (NULL);
     SDL_FreeSurface(surface);
+    surface = NULL;
     return (texture);
 }

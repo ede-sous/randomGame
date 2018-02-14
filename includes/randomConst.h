@@ -3,10 +3,10 @@
 
 #include "randomGame.h"
 
-#define CHAR_WIDTH 32
-#define CHAR_HEIGHT 32
+#define WINDOW_WIDTH 2000
+#define WINDOW_HEIGHT 1200
 
-#define WINDOW_WIDTH 1024
-#define WINDOW_HEIGHT 720
+#define CHAR_WIDTH (WINDOW_WIDTH * 0.03128)
+#define CHAR_HEIGHT CHAR_WIDTH
 
 #endif

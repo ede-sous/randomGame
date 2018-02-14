@@ -21,15 +21,10 @@ int     randomGame(GAME *game)
         startClock = SDL_GetTicks();
         SDL_RenderCopy(game->renderer, game->player->skin, NULL, &game->player->hitbox);
         if (game->keyboard[SDL_SCANCODE_UP] && game->player->velY > -0.64f)
-            game->player->velY += -0.16f;
+            game->player->velY += -0.5f;
         if (game->keyboard[SDL_SCANCODE_DOWN] && game->player->velY < 0.64f)
-            game->player->velY += 0.16f;
-        if (game->keyboard[SDL_SCANCODE_RIGHT] && game->keyboard[SDL_SCANCODE_LEFT] == 0)
-            game->player->velX = 0.5f; 
-        else if (game->keyboard[SDL_SCANCODE_LEFT] && game->keyboard[SDL_SCANCODE_RIGHT] == 0)
-            game->player->velX = -0.5f;
-        else
-            game->player->velX = 0.0f;
+            game->player->velY += 0.5f;
+        game->player->velX = 0.5f; 
         SDL_RenderPresent(game->renderer);
         SDL_RenderClear(game->renderer);
         SDL_Delay(10);
